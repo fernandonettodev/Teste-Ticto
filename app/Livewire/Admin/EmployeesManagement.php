@@ -182,7 +182,7 @@ class EmployeesManagement extends Component
                     $this->city_input = $data['localidade'] ?? '';
                     $this->state = $data['uf'] ?? '';
                 }
-            } catch (\Exzipcodetion $e) {
+            } catch (\Exception $e) {
                 // Se falhar, não faz nada - usuário pode preencher manualmente
             }
         }
