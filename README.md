@@ -1,3 +1,4 @@
+
 # 📌 Teste para Vaga de Desenvolvedor Back-end Senior (PHP / Laravel) – Ticto
 
 ## 🧾 Sobre o Projeto
@@ -11,13 +12,13 @@ Este é um projeto de teste técnico desenvolvido para a vaga de Desenvolvedor B
 - **PHP** com **Laravel 12** (última versão estável)
 - **MySQL** com Engine InnoDB
 - **Laravel Sail** para ambientação via Docker
-- **Livewire 3** para a interface front-end reativa e moderna
+- **Blade** para a interface front-end
 
 ---
 
 ## ⚙️ Instalação e Uso
 
-> Pré-requisitos: Docker e Docker Compose instalados.
+> **Pré-requisitos:** Docker e Docker Compose instalados.
 
 ### 🔧 Setup rápido:
 
@@ -29,9 +30,6 @@ cd Teste-Ticto
 # Copie o arquivo de ambiente
 cp .env.example .env
 
-# Suba os containers com Sail
-./vendor/bin/sail up -d
-
 # Instale as dependências PHP
 ./vendor/bin/sail composer install
 
@@ -41,12 +39,16 @@ cp .env.example .env
 # Rode as migrations
 ./vendor/bin/sail artisan migrate
 
-# Instale as dependências do front-end
-./vendor/bin/sail npm install && ./vendor/bin/sail npm run dev
+# Suba os containers com Sail
+./vendor/bin/sail up -d
 
 # Acesse no navegador
 http://localhost
 ```
+
+> **Observação:** Caso prefira, pode executar todos os comandos diretamente com `php artisan` e utilizar o servidor embutido do PHP, sem o Docker/Sail será necessario cadastrar o .env com os dados do Mysql e gerar a artisan:key. 
+
+O Sail foi utilizado para acelerar o setup do banco de dados MySQL e garantir um ambiente consistente.
 
 ---
 
@@ -60,10 +62,17 @@ http://localhost
 
 ### 🧑‍💼 Administrador
 
-- CRUD completo de funcionários
-- Visualização de registros de ponto de todos os funcionários
-- Filtro de registros por intervalo de datas
-- Cada funcionário é vinculado ao administrador que o cadastrou
+> **Acesso:** [http://localhost/admin/login](http://localhost/admin/login)  
+> **Email:** `admin@admin.com`  
+> **Senha:** `123456`
+
+O administrador possui as seguintes funcionalidades:
+
+- Gerenciamento completo (CRUD) dos funcionários cadastrados;
+- Visualização detalhada dos registros de ponto de todos os funcionários;
+- Filtro avançado de registros por intervalo de datas para análise;
+- Relatórios de registros de ponto, com dados completos para controle;
+- Cada funcionário está vinculado ao administrador responsável pelo seu cadastro, garantindo segurança e organização.
 
 ---
 
@@ -109,3 +118,4 @@ Uma listagem especial deve ser gerada usando **somente SQL** (sem Eloquent), con
 
 - Este projeto visa demonstrar boas práticas com Laravel, estrutura de código, domínio de banco de dados e uso de tecnologias modernas.
 - O Laravel Sail foi escolhido para garantir um ambiente consistente e facilitar a integração com o MySQL.
+- Foi feito uma refatoração do front-end do Livewire para o Blade, por ser mais simples e mais direto.
