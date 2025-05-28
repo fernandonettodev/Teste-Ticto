@@ -17,13 +17,15 @@ class Employee extends Authenticatable
         'document',
         'position',
         'zipcode',
-        'street',
+        'birthdate',
+        'address',
         'number',
         'neighbourhood',
         'city',
         'state',
         'active',
         'password',
+        'admin_id',
     ];
 
     protected $hidden = [
@@ -34,6 +36,7 @@ class Employee extends Authenticatable
     protected function casts(): array
     {
         return [
+            'birthdate' => 'date',
             'active' => 'boolean',
             'password' => 'hashed',
         ];
@@ -61,4 +64,11 @@ class Employee extends Authenticatable
             ->orderBy('date', 'desc')
             ->get();
     }
+
+
+    public function responsavel()
+    {
+        return $this->belongsTo(Admin::class, 'admin_id');
+    }
+
 }

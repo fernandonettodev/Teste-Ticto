@@ -22,7 +22,11 @@ return new class extends Migration
             $table->boolean('active')->default(true)->index();
             $table->date('birthdate');
             $table->string('zipcode');
+            $table->string('city');
             $table->string('address');
+            $table->string('number');
+            $table->string('neighbourhood');
+            $table->string('state')->nullable();
             $table->string('password');
             $table->timestamps();
 
